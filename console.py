@@ -7,25 +7,25 @@ class HBNBCommand(cmd.Cmd):
     file = None
 
     # ----- basic AirBnB commands -----
-    def do_amenity  (self, arg):
-        'Create an Amenity'
-        print('Amenity')       
+    # def do_amenity  (self, arg):
+    #     'Create an Amenity'
+    #     print('Amenity')       
        
-    def do_city(self, arg):
-        'Create a City'
-        print('City')
+    # def do_city(self, arg):
+    #     'Create a City'
+    #     print('City')
        
-    def do_place(self, arg):
-        'Create a Place'
-        print('Place')
+    # def do_place(self, arg):
+    #     'Create a Place'
+    #     print('Place')
         
-    def do_state(self, arg):
-        'Create a State'
-        print('State')
+    # def do_state(self, arg):
+    #     'Create a State'
+    #     print('State')
        
-    def do_airbnb(self, arg): 
-        'Create an AirBnB'
-        print('AirBnB')
+    # def do_airbnb(self, arg): 
+    #     'Create an AirBnB'
+    #     print('AirBnB')
         
     def do_create(self, arg):
         'Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id '
@@ -52,20 +52,20 @@ class HBNBCommand(cmd.Cmd):
             obj.__str__()
             print(obj)
 
-    def do_basemodel(self, arg):
-        'Create a BaseModel'
-        print('BaseModel')
+    # def do_basemodel(self, arg):
+    #     'Create a BaseModel'
+    #     print('BaseModel')
         
     def do_eof(self, arg):
         'Exit the console'
         print('Thank you for using AirBnB')     
         return -1
         
-    def do_review(self, arg):
-        'Create a Review'
-        print('Review')
+    # def do_review(self, arg):
+    #     'Create a Review'
+    #     print('Review')
 
-    def do_user(self, arg):
+    # def do_user(self, arg):
 
             
 
