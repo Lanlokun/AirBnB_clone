@@ -46,5 +46,6 @@ class FileStorage:
         """call reload() method for deserializing the JSON file to objects"""
         self.reload()
 
+
 if __name__ == "__main__":
     pass

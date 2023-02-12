@@ -1,7 +1,7 @@
 import cmd, sys
-from turtle import *
+from models.base_model import BaseModel
 
-class TurtleShell(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     intro = 'Welcome to the AirBnB shell.   Type help or ? to list commands.\n'
     prompt = '(malik)'
     file = None
@@ -28,13 +28,30 @@ class TurtleShell(cmd.Cmd):
         print('AirBnB')
         
     def do_create(self, arg):
-        'Create a BaseModel'
-        print('BaseModel')
-        
+        'Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id '
+        if arg == '':
+            print('** class name missing **')
+        elif arg != 'BaseModel':
+            print('** class doesn\'t exist **')
+        else:
+            obj = BaseModel()
+            obj.save()
+            print(obj.id)        
     def do_show (self, arg):
-        'Show a BaseModel'
-        print('BaseModel')
-        
+        'Prints the string representation of an instance based on the class name and id'
+        if arg == '':
+            print('** class name missing **')
+        elif arg != 'BaseModel':
+            print('** class doesn\'t exist **')
+        elif arg.find(' ') == -1:
+            print('** instance id missing **')
+        elif arg.id != 'BaseModel':
+            print('** no instance found **')
+        else:
+            obj = BaseModel()
+            obj.__str__()
+            print(obj)
+
     def do_basemodel(self, arg):
         'Create a BaseModel'
         print('BaseModel')
@@ -49,21 +66,59 @@ class TurtleShell(cmd.Cmd):
         print('Review')
 
     def do_user(self, arg):
-        'Create a User'
-        print('User')
+
+            
 
     def do_all(self, arg):
         'Prints all string representation of all instances based or not on the class name'
-        print('all')
+        if arg == '':
+            print('** class name missing **')
+        elif arg != 'BaseModel':
+            print('** class doesn\'t exist **')
+        else:
+            obj = BaseModel()
+            obj.__str__()
+            for i in obj:
+                print(i)
+            
 
     def do_destroy(self, arg):
-        'Deletes an instance based on the class name and id'
-        print('destroy')
+        'Deletes an instance based on the class name and id (save the change into the JSON file).'
+        if arg == '':
+            print('** class name missing **')
+        elif arg != 'BaseModel':
+            print('** class doesn\'t exist **')
+        elif arg.find(' ') == -1:
+            print('** instance id missing **')
+        elif arg.id != 'BaseModel':
+            print('** no instance found **')
+        else:
+            obj = BaseModel()
+            obj.delete()
 
     def do_update(self, arg):
         'Updates an instance based on the class name and id by adding or updating attribute'
-        print('update')
-
+        if arg == '':
+            print('** class name missing **')
+        elif arg != 'BaseModel':
+            print('** class doesn\'t exist **')
+        elif arg.find(' ') == -1:
+            print('** instance id missing **')
+        elif arg.id != 'BaseModel':
+            print('** no instance found **')
+        elif arg.find(' ') == -1:
+            print('** attribute name missing **')
+        elif arg.find(' ') == -1:
+            print('** value missing **')
+        else:
+            arg = arg.split()
+            arg[1] = arg[1].replace('"', '')
+            arg[2] = arg[2].replace('"', '')
+            obj = BaseModel()
+            obj.__dict__[arg[1]] = arg[2]
+            obj.save()
+            obj.__str__()
+            print(obj)       
     
         
     def do_quit(self, arg):
@@ -86,4 +141,4 @@ def parse(arg):
     return tuple(map(int, arg.split()))
 
 if __name__ == '__main__':
-    TurtleShell().cmdloop()
+    HBNBCommand().cmdloop()
