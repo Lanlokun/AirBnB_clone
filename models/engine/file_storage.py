@@ -7,6 +7,26 @@ class FileStorage:
     def all(self):
         """Returns the dictionary __objects"""
         return Storage.__objects
+    def user(self):
+        return self.__user
+    
+    def place(self):
+        return self.__place
+    
+    def state(self):
+        return self.__state
+
+    def city(self):
+        return self.__city
+    
+    def amenity(self):
+        return self.__amenity
+
+    def review(self):
+        return self.__review
+
+    def placeamenity(self):
+        return self.__placeamenity
 
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id"""

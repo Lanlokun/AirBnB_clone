@@ -1,4 +1,4 @@
-from . import base_model
+import base_model
 
 class Place(base_model.BaseModel):
     """Place class"""

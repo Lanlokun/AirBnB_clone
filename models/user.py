@@ -1,4 +1,4 @@
-from . import base_model
+import base_model
 
 class User(base_model.BaseModel):
     """User class"""

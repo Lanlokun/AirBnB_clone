@@ -1,4 +1,4 @@
-from . import base_model
+import base_model
 
 class State(base_model.BaseModel):
     """State class"""

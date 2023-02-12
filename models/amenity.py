@@ -1,4 +1,4 @@
-from . import base_model
+import base_model
 
 class Amenity(base_model.BaseModel):
     """Amenity class"""

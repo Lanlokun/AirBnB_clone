@@ -1,4 +1,4 @@
-from . import base_model
+import base_model
 
 class Review(base_model.BaseModel):
     """Review class"""

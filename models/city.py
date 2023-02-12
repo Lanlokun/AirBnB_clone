@@ -1,4 +1,4 @@
-from . import base_model
+import base_model
 
 class City(base_model.BaseModel):
     """City class"""
