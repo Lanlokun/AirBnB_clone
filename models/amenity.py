@@ -13,8 +13,7 @@ class Amenity(base_model.BaseModel):
         """
         String representation of Amenity
         """
-        return "[{}] ({}) {}".
-        format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Update the public instance attribute updated_at"""

@@ -1,3 +1,6 @@
+import json
+
+
 class FileStorage:
     """
     This class serializes instances to a JSON file and deserializes
@@ -8,7 +11,7 @@ class FileStorage:
 
     def all(self):
         """Returns the dictionary __objects"""
-        return Storage.__objects
+        return FileStorage.__objects
 
     def user(self):
         return self.__user
@@ -34,14 +37,14 @@ class FileStorage:
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id"""
         key = obj.__class__.__name__ + "." + obj.id
-        Storage.__objects[key] = obj
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
         new_dict = {}
-        for key, value in Storage.__objects.items():
+        for key, value in FileStorage.__objects.items():
             new_dict[key] = value.to_dict()
-        with open(Storage.__file_path, "w") as f:
+        with open(FileStorage.__file_path, "w") as f:
             json.dump(new_dict, f)
 
     def reload(self):
@@ -49,10 +52,10 @@ class FileStorage:
         (__file_path) exists ; otherwise, do nothing. If the file doesn’t
         exist, no exception should be raised)"""
         try:
-            with open(Storage.__file_path, "r") as f:
+            with open(FileStorage.__file_path, "r") as f:
                 new_dict = json.load(f)
             for key, value in new_dict.items():
-                Storage.__objects[key] = eval(value["__class__"])(**value)
+                FileStorage.__objects[key] = eval(value["__class__"])(**value)
         except FileNotFoundError:
             pass
 
@@ -61,8 +64,8 @@ class FileStorage:
         """Delete obj from __objects if it’s inside"""
         if obj is not None:
             key = obj.__class__.__name__ + "." + obj.id
-            if key in Storage.__objects:
-                del Storage.__objects[key]
+            if key in FileStorage.__objects:
+                del FileStorage.__objects[key]
                 self.save()
 
     def close(self):

@@ -9,8 +9,7 @@ class HBNBCommand(cmd.Cmd):
     file = None
 
     def do_create(self, arg):
-        'Creates a new instance of BaseModel,
-        'saves it (to the JSON file) and prints the id '
+        'Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id '
         if arg == '':
             print('** class name missing **')
         elif arg != 'BaseModel':
@@ -21,8 +20,7 @@ class HBNBCommand(cmd.Cmd):
             print(obj.id)
 
     def do_show(self, arg):
-        'Prints the string representation of an
-        'instance based on the class name and id'
+        'Prints the string representation of an instance based on the class name and id'
         if arg == '':
             print('** class name missing **')
         elif arg != 'BaseModel':
@@ -42,8 +40,7 @@ class HBNBCommand(cmd.Cmd):
         return -1
 
     def do_all(self, arg):
-        'Prints all string representation of all
-        'instances based or not on the class name'
+        'Prints all string representation of all instances based or not on the class name'
         if arg == '':
             print('** class name missing **')
         elif arg != 'BaseModel':
@@ -55,8 +52,7 @@ class HBNBCommand(cmd.Cmd):
                 print(i)
 
     def do_destroy(self, arg):
-        'Deletes an instance based on the class name and id
-        '(save the change into the JSON file).'
+        'Deletes an instance based on the class name and id (save the change into the JSON file).'
         if arg == '':
             print('** class name missing **')
         elif arg != 'BaseModel':
@@ -70,8 +66,8 @@ class HBNBCommand(cmd.Cmd):
             obj.delete()
 
     def do_update(self, arg):
-        'Updates an instance based on the class name and
-        'id by adding or updating attribute'
+        'Updates an instance based on the class name and id by adding or updating attribute'
+
         if arg == '':
             print('** class name missing **')
         elif arg != 'BaseModel':
