@@ -1,5 +1,6 @@
 import base_model
 
+
 class Amenity(base_model.BaseModel):
     """Amenity class"""
     name = ""
@@ -9,8 +10,11 @@ class Amenity(base_model.BaseModel):
         super().__init__(self, *args, **kwargs)
 
     def __str__(self):
-        """String representation of Amenity"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        """
+        String representation of Amenity
+        """
+        return "[{}] ({}) {}".
+        format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Update the public instance attribute updated_at"""
@@ -23,6 +27,7 @@ class Amenity(base_model.BaseModel):
     def delete(self):
         """Delete the current instance from the storage"""
         super().delete(self)
+
 
 if __name__ == "__main__":
     pass

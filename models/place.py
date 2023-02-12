@@ -1,5 +1,6 @@
 import base_model
 
+
 class Place(base_model.BaseModel):
     """Place class"""
     city_id = ""
@@ -20,7 +21,8 @@ class Place(base_model.BaseModel):
 
     def __str__(self):
         """String representation of Place"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".
+        format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Update the public instance attribute updated_at"""
@@ -33,6 +35,7 @@ class Place(base_model.BaseModel):
     def delete(self):
         """Delete the current instance from the storage"""
         super().delete(self)
+
 
 if __name__ == "__main__":
     pass

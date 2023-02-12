@@ -1,24 +1,27 @@
 class FileStorage:
-    """This class serializes instances to a JSON file and deserializes
-    JSON file to instances"""
+    """
+    This class serializes instances to a JSON file and deserializes
+    JSON file to instances
+    """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
         """Returns the dictionary __objects"""
         return Storage.__objects
+
     def user(self):
         return self.__user
-    
+
     def place(self):
         return self.__place
-    
+
     def state(self):
         return self.__state
 
     def city(self):
         return self.__city
-    
+
     def amenity(self):
         return self.__amenity
 
@@ -50,9 +53,9 @@ class FileStorage:
                 new_dict = json.load(f)
             for key, value in new_dict.items():
                 Storage.__objects[key] = eval(value["__class__"])(**value)
-        except:
+        except FileNotFoundError:
             pass
-    
+
     def delete(self, obj=None):
 
         """Delete obj from __objects if it’s inside"""
@@ -61,7 +64,7 @@ class FileStorage:
             if key in Storage.__objects:
                 del Storage.__objects[key]
                 self.save()
-        
+
     def close(self):
         """call reload() method for deserializing the JSON file to objects"""
         self.reload()

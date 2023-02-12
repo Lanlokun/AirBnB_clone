@@ -1,5 +1,6 @@
 import base_model
 
+
 class State(base_model.BaseModel):
     """State class"""
     name = ""
@@ -10,7 +11,8 @@ class State(base_model.BaseModel):
 
     def __str__(self):
         """String representation of State"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".
+        format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Update the public instance attribute updated_at"""
@@ -24,6 +26,6 @@ class State(base_model.BaseModel):
         """Delete the current instance from the storage"""
         super().delete(self)
 
+
 if __name__ == "__main__":
     pass
-    

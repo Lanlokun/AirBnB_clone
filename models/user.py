@@ -1,5 +1,6 @@
 import base_model
 
+
 class User(base_model.BaseModel):
     """User class"""
     email = ""
@@ -13,7 +14,8 @@ class User(base_model.BaseModel):
 
     def __str__(self):
         """String representation of User"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".
+        format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Update the public instance attribute updated_at"""
@@ -26,6 +28,7 @@ class User(base_model.BaseModel):
     def delete(self):
         """Delete the current instance from the storage"""
         super().delete(self)
+
 
 if __name__ == "__main__":
     pass
