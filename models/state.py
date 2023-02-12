@@ -1,7 +1,6 @@
-import base_model
+from models.base_model import BaseModel
 
-
-class State(base_model.BaseModel):
+class State(BaseModel):
     """State class"""
     name = ""
 

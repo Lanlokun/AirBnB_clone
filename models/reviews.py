@@ -1,7 +1,7 @@
-import base_model
+"""Review class"""
+from models.base_model import BaseModel
 
-
-class Review(base_model.BaseModel):
+class Review(BaseModel):
     """Review class"""
     place_id = ""
     user_id = ""

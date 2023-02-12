@@ -1,9 +1,6 @@
 from datetime import datetime
 import uuid
-from models.engine.file_storage import FileStorage
-
-
-storage = FileStorage()
+import models
 
 
 class BaseModel:
@@ -24,7 +21,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """String representation of BaseModel"""
@@ -34,8 +31,8 @@ class BaseModel:
     def save(self):
         """Update the public instance attribute updated_at"""
         self.updated_at = datetime.now()
-        storage.new(self)
-        storage.save()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """Returns a dictionary containing all keys/values"""
@@ -47,7 +44,7 @@ class BaseModel:
 
     def delete(self):
         """Delete the current instance from the storage"""
-        storage.delete(self)
+        models.storage.delete(self)
 
 
 if __name__ == "__main__":

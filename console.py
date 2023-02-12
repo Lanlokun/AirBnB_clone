@@ -1,6 +1,11 @@
 import cmd
-import sys
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.reviews import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -16,7 +21,8 @@ class HBNBCommand(cmd.Cmd):
         elif arg != 'BaseModel':
             print('** class doesn\'t exist **')
         else:
-            obj = BaseModel()
+            args = arg.split("")
+            obj = eval(args[0])()
             obj.save()
             print(obj.id)
 
